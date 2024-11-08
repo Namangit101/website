@@ -1,4 +1,4 @@
-FROM ubuntu:apache2
+FROM ubuntu
 
 # Update the package list
 RUN apt update
