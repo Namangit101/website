@@ -1,5 +1,13 @@
-FROM ubuntu/apache2
+FROM ubuntu:apache2
+
+# Update the package list
 RUN apt update
-RUN apt install apache2
-ADD ./var/www/html/
-ENTRYPOINT apachectl -D FOREGROUND
+
+# Install Apache2
+RUN apt install -y apache2
+
+# Copy local files from the build context (./var/www/html) to the container's web server directory
+ADD ./var/www/html/ /var/www/html/
+
+# Run Apache in the foreground
+ENTRYPOINT ["apachectl", "-D", "FOREGROUND"]
