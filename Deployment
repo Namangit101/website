@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: project-imp
+  labels:
+    app: project-imp
+spec:
+  replicas: 3  # Number of pod replicas
+  selector:
+    matchLabels:
+      app: project-imp  # Must match the label of the pods created by this deployment
+  template:
+    metadata:
+      labels:
+        app: project-imp # Labels for the pods created by the deployment
+    spec:
+      containers:
+      - name: project-container
+        image: namandocker101/project-imp:latest  # Container image
+        ports:
+        - containerPort: 80
