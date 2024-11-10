@@ -10,6 +10,6 @@ spec:
   ports:
     - protocol: TCP
       port: 80            # The port within the cluster that the service listens on
-      targetPort: 8080     # The port on the Pod that the application listens on
-      nodePort: 30001      # The port on each node where the service will be exposed
+      targetPort: 80     # The port on the Pod that the application listens on
+      nodePort: 30007      # The port on each node where the service will be exposed
   type: NodePort
