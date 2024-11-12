@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-web-deployment   # Name of the deployment
+  labels:
+    app: my-web-app
+spec:
+  replicas: 2              # Number of replicas
+  selector:
+    matchLabels:
+      app: my-web-app
+  template:
+    metadata:
+      labels:
+        app: my-web-app         # Labels for the pods
+    spec:
+      containers:
+      - name: my-web-container
+        image: namandocker101/assign  # Docker image for the application
+        ports:
+        - containerPort: 80         # Port exposed by the con
