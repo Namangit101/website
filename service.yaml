@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-app-service      # Name of the service
+  labels:
+    app: my-app
+spec:
+  selector:
+    app: my-app             # Selector to match the labels of the pods to route traffic to
+ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30008       # Port on the pod that the service r
