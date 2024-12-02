@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-deploy
+  labels:
+    app: attempt1
+spec: 
+  replicas: 2
+  selector:
+    matchLabels:
+      app: attempt1
+  template: 
+    metadata:
+      labels:
+        app: attempt1
+    spec:
+      containers: 
+        - name: myprod
+          image: namandocker101/attempt1
+          ports:
+            - containerPort: 80
